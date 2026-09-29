@@ -1,4 +1,4 @@
-const CACHE_NAME = "vocab-trainer-v9";
+const CACHE_NAME = "vocab-trainer-v10";
 const APP_SHELL = [
   "./",
   "index.html",
@@ -7,6 +7,7 @@ const APP_SHELL = [
   "data-loader.js",
   "learner-overrides.js",
   "app.js",
+  "results-import.js",
   "manifest.json",
   "data/sample.csv",
   "data/NGSL_learner_overrides.csv",
