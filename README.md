@@ -16,6 +16,7 @@ A minimal iPhone-friendly vocabulary trainer built as a static PWA.
 - Review-status filters use the latest saved status for each word; changing a status during a session affects later sessions, not the already-built current queue.
 - Import another CSV to replace the active vocabulary set.
 - Export learning results as CSV.
+- Restore an exported results CSV into the current browser/app storage without replacing vocabulary data.
 - Saves vocabulary and review results locally in the browser.
 
 ## Default vocabulary
@@ -58,9 +59,17 @@ The v2 audit contains **227 learner override entries**, including **45 explicit 
 
 Result identity remains based on `rank::word`, so this migration does not reset learning history.
 
+## Result backup and restore
+
+**Export Results** writes a CSV containing `rank`, `word`, `japanese`, `status`, `last_reviewed`, and `review_count`.
+
+**Restore Results** reads an exported results CSV and restores only review metadata into `vocabTrainer.results.v1`. It does not replace the current vocabulary dataset or learner-facing Japanese/PoS corrections. Imported rows are matched by `rank::word`; if a current result already exists, the newer `last_reviewed` status is kept and `review_count` is preserved at the larger value.
+
+This is useful when Safari and an iOS Home Screen Web App have separate browser storage.
+
 ## CSV format
 
-Required columns:
+Required columns for vocabulary import:
 
 ```csv
 rank,word,japanese
