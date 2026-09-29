@@ -68,6 +68,10 @@
           Import CSV
           <input id="csvInput" type="file" accept=".csv,text/csv" hidden>
         </label>
+        <label class="secondary-button file-button">
+          Restore Results
+          <input id="resultsInput" type="file" accept=".csv,text/csv" hidden>
+        </label>
         <button id="exportButton" class="secondary-button" type="button">Export Results</button>
         <button id="resetButton" class="text-button danger" type="button">Reset results</button>
       </div>
@@ -124,5 +128,6 @@
   <script src="data-loader.js" defer></script>
   <script src="learner-overrides.js" defer></script>
   <script src="app.js" defer></script>
+  <script src="results-import.js" defer></script>
 </body>
 </html>
